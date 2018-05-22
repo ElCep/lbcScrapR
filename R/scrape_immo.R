@@ -20,24 +20,24 @@ scape_immo <- function(region,page, querry,localisation, prix_max,nb_pieces_min)
                        "&pe=", prix_max,
                        "&ros=",nb_pieces_min)
 
-  guess_encoding(read_html(HTML_Cible))## Verif. encodage de la page
+  rvest::guess_encoding(xml2::read_html(HTML_Cible))## Verif. encodage de la page
   # Structure de ma page Web ...
-  Web_Read <- HTML_Cible %>% read_html(encoding = "ISO-8859-1")# deux liste header + body
+  Web_Read <- HTML_Cible %>% xml2::read_html(encoding = "ISO-8859-1")# deux liste header + body
 
 
 
   lien.v <- Web_Read %>%
-    html_nodes(".list_item") %>%
-    html_attr("href")
-  lien.v <- str_sub(lien.v, start = 3, end = -1)
+    rvest::html_nodes(".list_item") %>%
+    rvest::html_attr("href")
+  lien.v <- stringr::str_sub(lien.v, start = 3, end = -1)
 
   title.v <- Web_Read %>%
-    html_nodes(".list_item") %>%
-    html_attr("title")
+    rvest::html_nodes(".list_item") %>%
+    rvest::html_attr("title")
 
   ## Recuperer le prix dans un bon format
-  price <- Web_Read %>% html_nodes("h3.item_price") %>%
-    html_text()
+  price <- Web_Read %>% rvest::html_nodes("h3.item_price") %>%
+    rvest::html_text()
   a <- regmatches(price, gregexpr("[[:digit:]]+", price)) ## suprime tout ce qui n'est pas numeric
 
   ##assemble les listes
