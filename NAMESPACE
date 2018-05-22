@@ -3,5 +3,5 @@
 export(region.lbc)
 export(scape_immo)
 import(rvest)
-import(readr)
+import(xml2)
 import(stringr)

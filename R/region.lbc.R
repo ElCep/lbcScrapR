@@ -13,10 +13,10 @@ region.lbc <- function(){
   HTML_Cible <- "https://www.leboncoin.fr/"
 
   # Encoding de la pagee Web...
-  readr::guess_encoding(rvest::read_html(HTML_Cible))
+  rvest::guess_encoding(xml2::read_html(HTML_Cible))
 
   # Structure de ma page Web ...
-  Web_Read <- HTML_Cible %>% rvest::read_html(encoding = "ISO-8859-1")
+  Web_Read <- HTML_Cible %>% xml2::read_html(encoding = "ISO-8859-1")
 
   # Vérification de l'extraction de la liste des continents de la page Web...
   Continents <- Web_Read %>% rvest::html_nodes("a") %>%
