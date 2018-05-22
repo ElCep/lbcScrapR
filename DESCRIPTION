@@ -2,13 +2,10 @@ Package: lbcScrapR
 Title: Scrape real estate advertisements of the website "leboncoin.fr
 Version: 0.0.0.9000
 Authors@R: person("Etienne", "Delay", email = "etienne.delay@etu.unilim.fr", role = c("aut", "cre"))
-Description: Somes function maid in order to scrape estate advertisements from "leboncoin.fr". 
+Description: Somes function maid in order to scrape estate advertisements from "leboncoin.fr".
 Depends: R (>= 3.4.3)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: rvest,
-	 stringr,
-	 plyr,
-	 readr
+Imports: rvest, stringr, plyr, readr
 RoxygenNote: 6.0.1
