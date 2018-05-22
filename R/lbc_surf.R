@@ -21,6 +21,6 @@ lbc_surf <- function(data.df){
     }
 
   }
-  return(func.v)
+  return(as.numeric(unlist(func.v)))
 
 }
