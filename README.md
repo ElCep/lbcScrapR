@@ -19,5 +19,24 @@ Once it's done, you've got access to `install_github` functions :
     ## real estate scraping function
     a<-scape_immo(my.region,1, "","Aniane", 5, 5)
 
+## Go deeper
+
+    library(lbcScrapR)
+    library(rvest)
+    library(stringr)
+    ## find your region
+    my.region <- region.lbc()[7]
+    ##Price
+    my.price <- seq(from=25000, to=200000,by=25000)
+    ## real estate scraping function
+    a<-scape_immo(my.region,1, "","Aniane", 7, 5)
+    ## remove NA
+    a <- na.omit(a)
+    ## detect surface in title
+    anySurf <- str_detect(a$titre, "m²")
+    b <- a[anySurf,]
+
+    str_locate(b$titre, "m²")
+
 ## Pense-bête
 * information about [packaging](http://r-pkgs.had.co.nz/description.html)
