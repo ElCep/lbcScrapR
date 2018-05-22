@@ -46,5 +46,5 @@ scape_immo <- function(region,page, querry,localisation, prix_max,nb_pieces_min)
     prices.v <- c(prices.v,tmp)
   }
 
-  return(data.frame(titre=title.v[1:35], prix=prices.v,surface, url=lien.v[1:35]))
+  return(data.frame(titre=title.v[1:35], prix=prices.v, url=lien.v[1:35]))
 }
