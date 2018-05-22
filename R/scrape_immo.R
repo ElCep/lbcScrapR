@@ -39,13 +39,12 @@ scape_immo <- function(region,page, querry,localisation, prix_max,nb_pieces_min)
   price <- Web_Read %>% rvest::html_nodes("h3.item_price") %>%
     rvest::html_text()
   a <- regmatches(price, gregexpr("[[:digit:]]+", price)) ## suprime tout ce qui n'est pas numeric
-
-  ##assemble les listes
+  ###assemble les listes
   prices.v <- NULL
   for(z in 1:length(a)){
     tmp <- paste0(a[[z]][[1]],a[[z]][[2]])
     prices.v <- c(prices.v,tmp)
   }
 
-  return(data.frame(titre=title.v[1:35], prix=prices.v, url=lien.v[1:35]))
+  return(data.frame(titre=title.v[1:35], prix=prices.v,surface, url=lien.v[1:35]))
 }

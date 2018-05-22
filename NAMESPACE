@@ -2,6 +2,7 @@
 
 export(region.lbc)
 export(scape_immo)
+export(lbc_surf)
 import(rvest)
 import(xml2)
 import(stringr)
