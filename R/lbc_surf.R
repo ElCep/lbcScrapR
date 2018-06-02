@@ -15,6 +15,10 @@ lbc_surf <- function(data.df){
       pos <- stringr::str_locate(data.df$titre[i], "m²")
       v <- stringr::str_sub(data.df$titre[i],start = pos[,1]-6, end =  pos[,1]-1)
       surface.v <- as.numeric(unlist(regmatches(v, gregexpr("[[:digit:]]+", v))))
+      surface.v <- stringr::str_trunc(surface.v, 3, "left")
+      if(length(surface.v)>1){
+        surface.v <- surface.v[2]
+      }
       func.v <- c(func.v, surface.v)
     }else{
       func.v <- c(func.v, NA)
